@@ -16,7 +16,7 @@ namespace proje2
         {
             InitializeComponent();
         }
-
+  
         private void btn_giris_Click_1(object sender, EventArgs e)
         {
             if (txt_kullaniciadi.Text == "administrator" && txt_sifre.Text == "1234")
@@ -34,6 +34,11 @@ namespace proje2
             {
                 MessageBox.Show("Kullanıcı Adı veya Şifre hatalı lütfen tekrar deneyin");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txt_kullaniciadi.Focus();
         }
     }
 }

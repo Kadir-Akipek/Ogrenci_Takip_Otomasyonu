@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="finalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_DERS">
+          <Key>
+            <PropertyRef Name="DERS ID" />
+          </Key>
+          <Property Name="DERS ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DERS AD" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_NOTLAR">
+          <Key>
+            <PropertyRef Name="Not ID" />
+          </Key>
+          <Property Name="Not ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OGR" Type="int" />
+          <Property Name="DERS" Type="int" />
+          <Property Name="SINAV1" Type="smallint" />
+          <Property Name="SINAV2" Type="smallint" />
+          <Property Name="ORTALAMA" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="DURUM" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBL_OGR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="varchar" MaxLength="20" />
+          <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+          <Property Name="YAŞ" Type="int" />
+        </EntityType>
+        <Association Name="FK_TBL_NOTLAR_TBL_DERS">
+          <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
+          <End Role="TBL_NOTLAR" Type="Self.TBL_NOTLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DERS">
+              <PropertyRef Name="DERS ID" />
+            </Principal>
+            <Dependent Role="TBL_NOTLAR">
+              <PropertyRef Name="DERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_NOTLAR_TBL_OGR">
+          <End Role="TBL_OGR" Type="Self.TBL_OGR" Multiplicity="0..1" />
+          <End Role="TBL_NOTLAR" Type="Self.TBL_NOTLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OGR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_NOTLAR">
+              <PropertyRef Name="OGR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="finalModelStoreContainer">
+          <EntitySet Name="TBL_DERS" EntityType="Self.TBL_DERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_NOTLAR" EntityType="Self.TBL_NOTLAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_OGR" EntityType="Self.TBL_OGR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBL_NOTLAR_TBL_DERS" Association="Self.FK_TBL_NOTLAR_TBL_DERS">
+            <End Role="TBL_DERS" EntitySet="TBL_DERS" />
+            <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_NOTLAR_TBL_OGR" Association="Self.FK_TBL_NOTLAR_TBL_OGR">
+            <End Role="TBL_OGR" EntitySet="TBL_OGR" />
+            <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="finalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_DERS">
+          <Key>
+            <PropertyRef Name="DERS_ID" />
+          </Key>
+          <Property Name="DERS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DERS_AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_NOTLAR" Relationship="Self.FK_TBL_NOTLAR_TBL_DERS" FromRole="TBL_DERS" ToRole="TBL_NOTLAR" />
+        </EntityType>
+        <EntityType Name="TBL_NOTLAR">
+          <Key>
+            <PropertyRef Name="Not_ID" />
+          </Key>
+          <Property Name="Not_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OGR" Type="Int32" />
+          <Property Name="DERS" Type="Int32" />
+          <Property Name="SINAV1" Type="Int16" />
+          <Property Name="SINAV2" Type="Int16" />
+          <Property Name="ORTALAMA" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="DURUM" Type="Boolean" />
+          <NavigationProperty Name="TBL_DERS" Relationship="Self.FK_TBL_NOTLAR_TBL_DERS" FromRole="TBL_NOTLAR" ToRole="TBL_DERS" />
+          <NavigationProperty Name="TBL_OGR" Relationship="Self.FK_TBL_NOTLAR_TBL_OGR" FromRole="TBL_NOTLAR" ToRole="TBL_OGR" />
+        </EntityType>
+        <EntityType Name="TBL_OGR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="YAŞ" Type="Int32" />
+          <NavigationProperty Name="TBL_NOTLAR" Relationship="Self.FK_TBL_NOTLAR_TBL_OGR" FromRole="TBL_OGR" ToRole="TBL_NOTLAR" />
+        </EntityType>
+        <Association Name="FK_TBL_NOTLAR_TBL_DERS">
+          <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
+          <End Role="TBL_NOTLAR" Type="Self.TBL_NOTLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_DERS">
+              <PropertyRef Name="DERS_ID" />
+            </Principal>
+            <Dependent Role="TBL_NOTLAR">
+              <PropertyRef Name="DERS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_NOTLAR_TBL_OGR">
+          <End Role="TBL_OGR" Type="Self.TBL_OGR" Multiplicity="0..1" />
+          <End Role="TBL_NOTLAR" Type="Self.TBL_NOTLAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OGR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_NOTLAR">
+              <PropertyRef Name="OGR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="finalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_DERS" EntityType="Self.TBL_DERS" />
+          <EntitySet Name="TBL_NOTLAR" EntityType="Self.TBL_NOTLAR" />
+          <EntitySet Name="TBL_OGR" EntityType="Self.TBL_OGR" />
+          <AssociationSet Name="FK_TBL_NOTLAR_TBL_DERS" Association="Self.FK_TBL_NOTLAR_TBL_DERS">
+            <End Role="TBL_DERS" EntitySet="TBL_DERS" />
+            <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_NOTLAR_TBL_OGR" Association="Self.FK_TBL_NOTLAR_TBL_OGR">
+            <End Role="TBL_OGR" EntitySet="TBL_OGR" />
+            <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="finalModelStoreContainer" CdmEntityContainer="finalEntities">
+          <EntitySetMapping Name="TBL_DERS">
+            <EntityTypeMapping TypeName="finalModel.TBL_DERS">
+              <MappingFragment StoreEntitySet="TBL_DERS">
+                <ScalarProperty Name="DERS_ID" ColumnName="DERS ID" />
+                <ScalarProperty Name="DERS_AD" ColumnName="DERS AD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_NOTLAR">
+            <EntityTypeMapping TypeName="finalModel.TBL_NOTLAR">
+              <MappingFragment StoreEntitySet="TBL_NOTLAR">
+                <ScalarProperty Name="Not_ID" ColumnName="Not ID" />
+                <ScalarProperty Name="OGR" ColumnName="OGR" />
+                <ScalarProperty Name="DERS" ColumnName="DERS" />
+                <ScalarProperty Name="SINAV1" ColumnName="SINAV1" />
+                <ScalarProperty Name="SINAV2" ColumnName="SINAV2" />
+                <ScalarProperty Name="ORTALAMA" ColumnName="ORTALAMA" />
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_OGR">
+            <EntityTypeMapping TypeName="finalModel.TBL_OGR">
+              <MappingFragment StoreEntitySet="TBL_OGR">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AD" ColumnName="AD" />
+                <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
+                <ScalarProperty Name="YAŞ" ColumnName="YAŞ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

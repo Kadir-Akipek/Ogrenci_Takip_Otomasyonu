@@ -54,15 +54,59 @@ namespace proje2
 
         private void btn_cıkıs_Click(object sender, EventArgs e)
         {
-            //DialogResult bize herhangi bir durumda programın önüne (ShowDialog açar gibi) bir uyarı mesajından sonucu verir.
             DialogResult sonuc;
             sonuc = MessageBox.Show("Çıkmak İstediğinizden Eminmisiniz?", "Uyarı", MessageBoxButtons.OKCancel);
             {
                 if (sonuc == DialogResult.OK)
                 {
-                    //Uygulamadan çıkış yap.
                     Application.Exit();
                 }
+            }
+        }
+
+        private void btn_linqEntity_Click(object sender, EventArgs e)
+        {
+            //Öğrencileri A dan Z ye sırala
+            if (radioButton1.Checked == true)
+            {
+                List<TBL_OGR> liste1 = db.TBL_OGR.OrderBy(p => p.AD).ToList();
+                dataGridView1.DataSource = liste1;
+            }
+            //Öğrencileri Z den A ya sırala
+            if (radioButton2.Checked == true)
+            {
+                List<TBL_OGR> liste2 = db.TBL_OGR.OrderByDescending(p => p.AD).ToList();
+                dataGridView1.DataSource = liste2;
+            }
+            //İlk 5 kaydı listele
+            if (radioButton3.Checked == true)
+            {
+                List<TBL_OGR> liste3 = db.TBL_OGR.OrderBy(p => p.AD).Take(5).ToList();
+                dataGridView1.DataSource = liste3;
+            }
+            //Toplam öğrenci sayısını yazdır
+            if (radioButton4.Checked == true)
+            {
+                int toplam_ogrsayısı = db.TBL_OGR.Count();
+                MessageBox.Show(toplam_ogrsayısı.ToString(), "Toplam Öğrenci Sayısı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            //Adı E harfi ile başlayanları yazdır
+            if (radioButton5.Checked == true)
+            {
+                List<TBL_OGR> liste4 = db.TBL_OGR.Where(p => p.AD.StartsWith("E")).ToList();
+                dataGridView1.DataSource = liste4;
+            }
+            //Soyadı K harfi ile bitenleri yazdır
+            if (radioButton6.Checked == true)
+            {
+                List<TBL_OGR> liste5 = db.TBL_OGR.Where(p => p.SOYAD.EndsWith("K")).ToList();
+                dataGridView1.DataSource = liste5;
+            }
+            //En yüksek 2.Sınav notunu listele
+            if (radioButton7.Checked == true)
+            {
+                var enyuksek = db.TBL_NOTLAR.Max(p => p.SINAV2);
+                MessageBox.Show("2.sınavın en yüksek notu: " + enyuksek.ToString());
             }
         }
     }

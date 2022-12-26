@@ -28,5 +28,6 @@ namespace proje2
         public virtual DbSet<TBL_DERS> TBL_DERS { get; set; }
         public virtual DbSet<TBL_NOTLAR> TBL_NOTLAR { get; set; }
         public virtual DbSet<TBL_OGR> TBL_OGR { get; set; }
+        public virtual DbSet<TBL_DEVAMSİZLİK> TBL_DEVAMSİZLİK { get; set; }
     }
 }

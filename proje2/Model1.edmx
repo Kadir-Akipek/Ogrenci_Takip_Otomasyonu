@@ -9,8 +9,16 @@
           <Key>
             <PropertyRef Name="DERS ID" />
           </Key>
-          <Property Name="DERS ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DERS ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="DERS AD" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_DEVAMSİZLİK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrID" Type="int" Nullable="false" />
+          <Property Name="Devamsizlik" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="TBL_NOTLAR">
           <Key>
@@ -21,18 +29,29 @@
           <Property Name="DERS" Type="int" />
           <Property Name="SINAV1" Type="smallint" />
           <Property Name="SINAV2" Type="smallint" />
-          <Property Name="ORTALAMA" Type="decimal" Precision="5" Scale="2" />
           <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_OGR">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="AD" Type="varchar" MaxLength="20" />
           <Property Name="SOYAD" Type="varchar" MaxLength="20" />
           <Property Name="YAŞ" Type="int" />
         </EntityType>
+        <Association Name="FK_TBL_DEVAMSİZLİK_TBL_OGR">
+          <End Role="TBL_OGR" Type="Self.TBL_OGR" Multiplicity="1" />
+          <End Role="TBL_DEVAMSİZLİK" Type="Self.TBL_DEVAMSİZLİK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OGR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_DEVAMSİZLİK">
+              <PropertyRef Name="OgrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TBL_NOTLAR_TBL_DERS">
           <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
           <End Role="TBL_NOTLAR" Type="Self.TBL_NOTLAR" Multiplicity="*" />
@@ -59,8 +78,13 @@
         </Association>
         <EntityContainer Name="finalModelStoreContainer">
           <EntitySet Name="TBL_DERS" EntityType="Self.TBL_DERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DEVAMSİZLİK" EntityType="Self.TBL_DEVAMSİZLİK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_NOTLAR" EntityType="Self.TBL_NOTLAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_OGR" EntityType="Self.TBL_OGR" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBL_DEVAMSİZLİK_TBL_OGR" Association="Self.FK_TBL_DEVAMSİZLİK_TBL_OGR">
+            <End Role="TBL_OGR" EntitySet="TBL_OGR" />
+            <End Role="TBL_DEVAMSİZLİK" EntitySet="TBL_DEVAMSİZLİK" />
+          </AssociationSet>
           <AssociationSet Name="FK_TBL_NOTLAR_TBL_DERS" Association="Self.FK_TBL_NOTLAR_TBL_DERS">
             <End Role="TBL_DERS" EntitySet="TBL_DERS" />
             <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
@@ -91,7 +115,6 @@
           <Property Name="DERS" Type="Int32" />
           <Property Name="SINAV1" Type="Int16" />
           <Property Name="SINAV2" Type="Int16" />
-          <Property Name="ORTALAMA" Type="Decimal" Precision="5" Scale="2" />
           <Property Name="DURUM" Type="Boolean" />
           <NavigationProperty Name="TBL_DERS" Relationship="Self.FK_TBL_NOTLAR_TBL_DERS" FromRole="TBL_NOTLAR" ToRole="TBL_DERS" />
           <NavigationProperty Name="TBL_OGR" Relationship="Self.FK_TBL_NOTLAR_TBL_OGR" FromRole="TBL_NOTLAR" ToRole="TBL_OGR" />
@@ -105,6 +128,7 @@
           <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="YAŞ" Type="Int32" />
           <NavigationProperty Name="TBL_NOTLAR" Relationship="Self.FK_TBL_NOTLAR_TBL_OGR" FromRole="TBL_OGR" ToRole="TBL_NOTLAR" />
+          <NavigationProperty Name="TBL_DEVAMSİZLİK" Relationship="finalModel.FK_TBL_DEVAMSİZLİK_TBL_OGR" FromRole="TBL_OGR" ToRole="TBL_DEVAMSİZLİK" />
         </EntityType>
         <Association Name="FK_TBL_NOTLAR_TBL_DERS">
           <End Role="TBL_DERS" Type="Self.TBL_DERS" Multiplicity="0..1" />
@@ -142,7 +166,33 @@
             <End Role="TBL_OGR" EntitySet="TBL_OGR" />
             <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
           </AssociationSet>
+          <EntitySet Name="TBL_DEVAMSİZLİK" EntityType="finalModel.TBL_DEVAMSİZLİK" />
+          <AssociationSet Name="FK_TBL_DEVAMSİZLİK_TBL_OGR" Association="finalModel.FK_TBL_DEVAMSİZLİK_TBL_OGR">
+            <End Role="TBL_OGR" EntitySet="TBL_OGR" />
+            <End Role="TBL_DEVAMSİZLİK" EntitySet="TBL_DEVAMSİZLİK" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TBL_DEVAMSİZLİK">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrID" Type="Int32" Nullable="false" />
+          <Property Name="Devamsizlik" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TBL_OGR" Relationship="finalModel.FK_TBL_DEVAMSİZLİK_TBL_OGR" FromRole="TBL_DEVAMSİZLİK" ToRole="TBL_OGR" />
+        </EntityType>
+        <Association Name="FK_TBL_DEVAMSİZLİK_TBL_OGR">
+          <End Type="finalModel.TBL_OGR" Role="TBL_OGR" Multiplicity="1" />
+          <End Type="finalModel.TBL_DEVAMSİZLİK" Role="TBL_DEVAMSİZLİK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_OGR">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TBL_DEVAMSİZLİK">
+              <PropertyRef Name="OgrID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -165,7 +215,6 @@
                 <ScalarProperty Name="DERS" ColumnName="DERS" />
                 <ScalarProperty Name="SINAV1" ColumnName="SINAV1" />
                 <ScalarProperty Name="SINAV2" ColumnName="SINAV2" />
-                <ScalarProperty Name="ORTALAMA" ColumnName="ORTALAMA" />
                 <ScalarProperty Name="DURUM" ColumnName="DURUM" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -177,6 +226,15 @@
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
                 <ScalarProperty Name="YAŞ" ColumnName="YAŞ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DEVAMSİZLİK">
+            <EntityTypeMapping TypeName="finalModel.TBL_DEVAMSİZLİK">
+              <MappingFragment StoreEntitySet="TBL_DEVAMSİZLİK">
+                <ScalarProperty Name="Devamsizlik" ColumnName="Devamsizlik" />
+                <ScalarProperty Name="OgrID" ColumnName="OgrID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

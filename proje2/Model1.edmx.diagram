@@ -6,10 +6,12 @@
     <edmx:Diagrams>
       <Diagram DiagramId="a7575b3396474c2da9805356b74e9fe2" Name="Diagram1">
         <EntityTypeShape EntityType="finalModel.TBL_DERS" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="finalModel.TBL_NOTLAR" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="finalModel.TBL_OGR" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finalModel.TBL_NOTLAR" Width="1.5" PointX="3.125" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="finalModel.TBL_OGR" Width="1.5" PointX="3.375" PointY="4.875" IsExpanded="true" />
         <AssociationConnector Association="finalModel.FK_TBL_NOTLAR_TBL_DERS" ManuallyRouted="false" />
         <AssociationConnector Association="finalModel.FK_TBL_NOTLAR_TBL_OGR" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="finalModel.TBL_DEVAMSİZLİK" Width="1.5" PointX="0.75" PointY="5" />
+        <AssociationConnector Association="finalModel.FK_TBL_DEVAMSİZLİK_TBL_OGR" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

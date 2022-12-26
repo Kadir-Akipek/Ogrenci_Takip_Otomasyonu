@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,8 @@ namespace proje2
         private void btn_ogrlistele_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = db.TBL_OGR.ToList();
+            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[5].Visible = false;
         }
 
 
@@ -69,14 +72,16 @@ namespace proje2
             //Öğrencileri A dan Z ye sırala
             if (radioButton1.Checked == true)
             {
-                List<TBL_OGR> liste1 = db.TBL_OGR.OrderBy(p => p.AD).ToList();
-                dataGridView1.DataSource = liste1;
+                dataGridView1.DataSource = db.TBL_OGR.OrderBy(p => p.AD).ToList();
+                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
             }
             //Öğrencileri Z den A ya sırala
             if (radioButton2.Checked == true)
             {
-                List<TBL_OGR> liste2 = db.TBL_OGR.OrderByDescending(p => p.AD).ToList();
-                dataGridView1.DataSource = liste2;
+                dataGridView1.DataSource = db.TBL_OGR.OrderByDescending(p => p.AD).ToList();
+                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
             }
             //İlk 5 kaydı listele
             if (radioButton3.Checked == true)
@@ -108,6 +113,84 @@ namespace proje2
                 var enyuksek = db.TBL_NOTLAR.Max(p => p.SINAV2);
                 MessageBox.Show("2.sınavın en yüksek notu: " + enyuksek.ToString());
             }
+            /*
+            if (radioButton8.Checked == true)
+            {
+                List<TBL_NOTLAR> liste6 = db.TBL_NOTLAR.ToList();
+                dataGridView1.DataSource = liste6;
+            }
+            */
+            if (radioButton9.Checked == true)
+            {
+                //dataGridView1.DataSource = db.TBL_NOTLAR.OrderByDescending(p => p.SINAV1).ToList();
+                dataGridView1.DataSource = db.TBL_NOTLAR.ToList();
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].Visible = false;
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
+                dataGridView1.Columns[7].Visible = false;
+                var sorgu = from d1 in db.TBL_NOTLAR
+                            join d2 in db.TBL_OGR
+                            on d1.OGR equals d2.ID 
+                            select new
+                            {
+                                Öğrencinin_Adı = d2.AD,
+                                Öğrencinin_Soyadı= d2.SOYAD,
+                                Sınav_1 = d1.SINAV1
+                            };
+                dataGridView1.DataSource = sorgu.ToList();
+            }
+            if (radioButton10.Checked == true)
+            {
+                //dataGridView1.DataSource = db.TBL_NOTLAR.OrderBy(p => p.SINAV2).ToList();
+                dataGridView1.DataSource = db.TBL_NOTLAR.ToList();
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].Visible = false;
+                dataGridView1.Columns[2].Visible = false;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[6].Visible = false;
+                dataGridView1.Columns[7].Visible = false;
+                var sorgu = from d1 in db.TBL_NOTLAR
+                            join d2 in db.TBL_OGR
+                            on d1.OGR equals d2.ID orderby d1.SINAV2
+                            select new
+                            {
+                                Öğrencinin_Adı = d2.AD,
+                                Öğrencinin_Soyadı = d2.SOYAD,
+                                Sınav_2 = d1.SINAV2,
+                            };
+                dataGridView1.DataSource = sorgu.ToList();
+            }
+        }
+
+        private void btn_devamsizlik_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.TBL_DEVAMSİZLİK.ToList();
+
+        }
+
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

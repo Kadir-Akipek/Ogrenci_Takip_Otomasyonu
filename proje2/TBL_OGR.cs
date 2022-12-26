@@ -18,6 +18,7 @@ namespace proje2
         public TBL_OGR()
         {
             this.TBL_NOTLAR = new HashSet<TBL_NOTLAR>();
+            this.TBL_DEVAMSİZLİK = new HashSet<TBL_DEVAMSİZLİK>();
         }
     
         public int ID { get; set; }
@@ -27,5 +28,7 @@ namespace proje2
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_NOTLAR> TBL_NOTLAR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DEVAMSİZLİK> TBL_DEVAMSİZLİK { get; set; }
     }
 }

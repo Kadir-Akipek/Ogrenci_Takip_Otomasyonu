@@ -90,6 +90,9 @@
     <Compile Include="TBL_DERS.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="TBL_DEVAMSİZLİK.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="TBL_NOTLAR.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

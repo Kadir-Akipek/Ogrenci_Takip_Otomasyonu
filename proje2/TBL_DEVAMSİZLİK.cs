@@ -12,16 +12,12 @@ namespace proje2
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_NOTLAR
+    public partial class TBL_DEVAMSİZLİK
     {
-        public int Not_ID { get; set; }
-        public Nullable<int> OGR { get; set; }
-        public Nullable<int> DERS { get; set; }
-        public Nullable<short> SINAV1 { get; set; }
-        public Nullable<short> SINAV2 { get; set; }
-        public Nullable<bool> DURUM { get; set; }
+        public int ID { get; set; }
+        public int OgrID { get; set; }
+        public System.DateTime Devamsizlik { get; set; }
     
-        public virtual TBL_DERS TBL_DERS { get; set; }
         public virtual TBL_OGR TBL_OGR { get; set; }
     }
 }

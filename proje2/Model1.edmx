@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="DERS ID" />
           </Key>
-          <Property Name="DERS ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DERS ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DERS AD" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBL_DEVAMSİZLİK">

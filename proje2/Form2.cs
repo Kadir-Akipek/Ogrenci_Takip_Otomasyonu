@@ -197,5 +197,28 @@ namespace proje2
         {
 
         }
+
+        private void btn_derslistele_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.TBL_DERS.ToList();
+        }
+
+        private void btn_dersekle_Click(object sender, EventArgs e)
+        {
+            TBL_DERS t = new TBL_DERS();
+            t.DERS_AD = Convert.ToString(txt_dersAD.Text);
+            db.TBL_DERS.Add(t);
+            db.SaveChanges();
+            MessageBox.Show("Ders başarıyla eklenmiştir");
+        }
+
+        private void btn_derssil_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txt_dersID.Text);
+            var x = db.TBL_DERS.Find(id);
+            db.TBL_DERS .Remove(x);
+            db.SaveChanges();
+            MessageBox.Show("Ders başarıyla silinişmtir");
+        }
     }
 }

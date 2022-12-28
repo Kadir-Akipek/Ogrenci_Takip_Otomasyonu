@@ -43,13 +43,6 @@
             this.txt_dersID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txt_ortalama = new System.Windows.Forms.TextBox();
-            this.txt_sınav2 = new System.Windows.Forms.TextBox();
-            this.txt_sınav1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.btn_ogrekle = new System.Windows.Forms.Button();
             this.btn_ogrlistele = new System.Windows.Forms.Button();
             this.btn_ogrenciSil = new System.Windows.Forms.Button();
@@ -64,10 +57,12 @@
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.btn_derslistele = new System.Windows.Forms.Button();
+            this.btn_dersekle = new System.Windows.Forms.Button();
+            this.btn_derssil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -77,7 +72,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(932, 363);
+            this.dataGridView1.Size = new System.Drawing.Size(932, 389);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -93,7 +88,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox1.Location = new System.Drawing.Point(13, 400);
+            this.groupBox1.Location = new System.Drawing.Point(13, 407);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 162);
             this.groupBox1.TabIndex = 1;
@@ -131,9 +126,9 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(9, 130);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 16);
+            this.label1.Size = new System.Drawing.Size(34, 16);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Yaş";
+            this.label1.Text = "Yaş:";
             // 
             // txt_ogrenciSOYAD
             // 
@@ -175,7 +170,7 @@
             this.groupBox2.Controls.Add(this.txt_dersID);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(229, 400);
+            this.groupBox2.Location = new System.Drawing.Point(229, 407);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 162);
             this.groupBox2.TabIndex = 2;
@@ -210,83 +205,17 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(6, 28);
+            this.label4.Location = new System.Drawing.Point(6, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 16);
             this.label4.TabIndex = 9;
             this.label4.Text = "ID:";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txt_ortalama);
-            this.groupBox3.Controls.Add(this.txt_sınav2);
-            this.groupBox3.Controls.Add(this.txt_sınav1);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(456, 400);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 162);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Notlar";
-            // 
-            // txt_ortalama
-            // 
-            this.txt_ortalama.Location = new System.Drawing.Point(89, 101);
-            this.txt_ortalama.Name = "txt_ortalama";
-            this.txt_ortalama.Size = new System.Drawing.Size(100, 22);
-            this.txt_ortalama.TabIndex = 17;
-            // 
-            // txt_sınav2
-            // 
-            this.txt_sınav2.Location = new System.Drawing.Point(89, 64);
-            this.txt_sınav2.Name = "txt_sınav2";
-            this.txt_sınav2.Size = new System.Drawing.Size(100, 22);
-            this.txt_sınav2.TabIndex = 16;
-            // 
-            // txt_sınav1
-            // 
-            this.txt_sınav1.Location = new System.Drawing.Point(89, 28);
-            this.txt_sınav1.Name = "txt_sınav1";
-            this.txt_sınav1.Size = new System.Drawing.Size(100, 22);
-            this.txt_sınav1.TabIndex = 15;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label8.Location = new System.Drawing.Point(6, 63);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 16);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Sınav2:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label7.Location = new System.Drawing.Point(6, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 16);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Ortalama:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.label6.Location = new System.Drawing.Point(6, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 16);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Sınav1:";
-            // 
             // btn_ogrekle
             // 
-            this.btn_ogrekle.Location = new System.Drawing.Point(677, 463);
+            this.btn_ogrekle.Location = new System.Drawing.Point(13, 621);
             this.btn_ogrekle.Name = "btn_ogrekle";
-            this.btn_ogrekle.Size = new System.Drawing.Size(184, 39);
+            this.btn_ogrekle.Size = new System.Drawing.Size(200, 39);
             this.btn_ogrekle.TabIndex = 3;
             this.btn_ogrekle.Text = "Öğrenci Ekle";
             this.btn_ogrekle.UseVisualStyleBackColor = true;
@@ -294,9 +223,9 @@
             // 
             // btn_ogrlistele
             // 
-            this.btn_ogrlistele.Location = new System.Drawing.Point(677, 404);
+            this.btn_ogrlistele.Location = new System.Drawing.Point(13, 575);
             this.btn_ogrlistele.Name = "btn_ogrlistele";
-            this.btn_ogrlistele.Size = new System.Drawing.Size(184, 40);
+            this.btn_ogrlistele.Size = new System.Drawing.Size(200, 40);
             this.btn_ogrlistele.TabIndex = 4;
             this.btn_ogrlistele.Text = "Öğrencileri Listele";
             this.btn_ogrlistele.UseVisualStyleBackColor = true;
@@ -304,9 +233,9 @@
             // 
             // btn_ogrenciSil
             // 
-            this.btn_ogrenciSil.Location = new System.Drawing.Point(677, 518);
+            this.btn_ogrenciSil.Location = new System.Drawing.Point(13, 666);
             this.btn_ogrenciSil.Name = "btn_ogrenciSil";
-            this.btn_ogrenciSil.Size = new System.Drawing.Size(184, 40);
+            this.btn_ogrenciSil.Size = new System.Drawing.Size(200, 40);
             this.btn_ogrenciSil.TabIndex = 5;
             this.btn_ogrenciSil.Text = "Öğrenciyi Sil";
             this.btn_ogrenciSil.UseVisualStyleBackColor = true;
@@ -314,7 +243,7 @@
             // 
             // btn_cıkıs
             // 
-            this.btn_cıkıs.Location = new System.Drawing.Point(13, 641);
+            this.btn_cıkıs.Location = new System.Drawing.Point(1114, 694);
             this.btn_cıkıs.Name = "btn_cıkıs";
             this.btn_cıkıs.Size = new System.Drawing.Size(134, 62);
             this.btn_cıkıs.TabIndex = 6;
@@ -325,7 +254,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(965, 95);
+            this.radioButton1.Location = new System.Drawing.Point(964, 95);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(196, 20);
             this.radioButton1.TabIndex = 7;
@@ -336,7 +265,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(965, 131);
+            this.radioButton2.Location = new System.Drawing.Point(964, 131);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(196, 20);
             this.radioButton2.TabIndex = 8;
@@ -347,7 +276,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(965, 169);
+            this.radioButton3.Location = new System.Drawing.Point(964, 169);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(125, 20);
             this.radioButton3.TabIndex = 9;
@@ -358,7 +287,7 @@
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(965, 206);
+            this.radioButton4.Location = new System.Drawing.Point(964, 206);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(210, 20);
             this.radioButton4.TabIndex = 10;
@@ -369,7 +298,7 @@
             // btn_linqEntity
             // 
             this.btn_linqEntity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btn_linqEntity.Location = new System.Drawing.Point(965, 12);
+            this.btn_linqEntity.Location = new System.Drawing.Point(964, 12);
             this.btn_linqEntity.Name = "btn_linqEntity";
             this.btn_linqEntity.Size = new System.Drawing.Size(241, 65);
             this.btn_linqEntity.TabIndex = 11;
@@ -380,7 +309,7 @@
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(965, 241);
+            this.radioButton5.Location = new System.Drawing.Point(964, 241);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(221, 20);
             this.radioButton5.TabIndex = 12;
@@ -391,7 +320,7 @@
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(965, 276);
+            this.radioButton6.Location = new System.Drawing.Point(964, 276);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(219, 20);
             this.radioButton6.TabIndex = 13;
@@ -402,7 +331,7 @@
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(964, 381);
+            this.radioButton7.Location = new System.Drawing.Point(963, 381);
             this.radioButton7.Name = "radioButton7";
             this.radioButton7.Size = new System.Drawing.Size(220, 20);
             this.radioButton7.TabIndex = 14;
@@ -413,7 +342,7 @@
             // radioButton9
             // 
             this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(965, 312);
+            this.radioButton9.Location = new System.Drawing.Point(964, 312);
             this.radioButton9.Name = "radioButton9";
             this.radioButton9.Size = new System.Drawing.Size(163, 20);
             this.radioButton9.TabIndex = 17;
@@ -424,7 +353,7 @@
             // radioButton10
             // 
             this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(965, 345);
+            this.radioButton10.Location = new System.Drawing.Point(964, 345);
             this.radioButton10.Name = "radioButton10";
             this.radioButton10.Size = new System.Drawing.Size(264, 20);
             this.radioButton10.TabIndex = 18;
@@ -433,12 +362,45 @@
             this.radioButton10.UseVisualStyleBackColor = true;
             this.radioButton10.CheckedChanged += new System.EventHandler(this.radioButton10_CheckedChanged);
             // 
+            // btn_derslistele
+            // 
+            this.btn_derslistele.Location = new System.Drawing.Point(229, 575);
+            this.btn_derslistele.Name = "btn_derslistele";
+            this.btn_derslistele.Size = new System.Drawing.Size(200, 40);
+            this.btn_derslistele.TabIndex = 19;
+            this.btn_derslistele.Text = "Verilen Dersleri Listele";
+            this.btn_derslistele.UseVisualStyleBackColor = true;
+            this.btn_derslistele.Click += new System.EventHandler(this.btn_derslistele_Click);
+            // 
+            // btn_dersekle
+            // 
+            this.btn_dersekle.Location = new System.Drawing.Point(229, 621);
+            this.btn_dersekle.Name = "btn_dersekle";
+            this.btn_dersekle.Size = new System.Drawing.Size(200, 40);
+            this.btn_dersekle.TabIndex = 20;
+            this.btn_dersekle.Text = "Ders Ekle";
+            this.btn_dersekle.UseVisualStyleBackColor = true;
+            this.btn_dersekle.Click += new System.EventHandler(this.btn_dersekle_Click);
+            // 
+            // btn_derssil
+            // 
+            this.btn_derssil.Location = new System.Drawing.Point(229, 666);
+            this.btn_derssil.Name = "btn_derssil";
+            this.btn_derssil.Size = new System.Drawing.Size(200, 40);
+            this.btn_derssil.TabIndex = 21;
+            this.btn_derssil.Text = "Ders Sil";
+            this.btn_derssil.UseVisualStyleBackColor = true;
+            this.btn_derssil.Click += new System.EventHandler(this.btn_derssil_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1236, 715);
+            this.ClientSize = new System.Drawing.Size(1260, 768);
+            this.Controls.Add(this.btn_derssil);
+            this.Controls.Add(this.btn_dersekle);
+            this.Controls.Add(this.btn_derslistele);
             this.Controls.Add(this.radioButton10);
             this.Controls.Add(this.radioButton9);
             this.Controls.Add(this.radioButton7);
@@ -454,7 +416,6 @@
             this.Controls.Add(this.btn_ogrlistele);
             this.Controls.Add(this.btn_ogrekle);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form2";
@@ -465,8 +426,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,13 +444,6 @@
         private System.Windows.Forms.TextBox txt_dersID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txt_ortalama;
-        private System.Windows.Forms.TextBox txt_sınav2;
-        private System.Windows.Forms.TextBox txt_sınav1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_ogrekle;
         private System.Windows.Forms.Button btn_ogrlistele;
         private System.Windows.Forms.TextBox txt_ogrYAS;
@@ -510,5 +462,8 @@
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.RadioButton radioButton9;
         private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.Button btn_derslistele;
+        private System.Windows.Forms.Button btn_dersekle;
+        private System.Windows.Forms.Button btn_derssil;
     }
 }

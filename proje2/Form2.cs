@@ -69,60 +69,64 @@ namespace proje2
 
         private void btn_linqEntity_Click(object sender, EventArgs e)
         {
-            //Öğrencileri A dan Z ye sırala
             if (radioButton1.Checked == true)
             {
+                //OrderBy metodu ile isimleri alfabetik sıraya göre yazdırdım
                 dataGridView1.DataSource = db.TBL_OGR.OrderBy(p => p.AD).ToList();
+                //4. ve 5. kolonları kullanıcıya görünmez hale getirdim
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
             }
-            //Öğrencileri Z den A ya sırala
+
             if (radioButton2.Checked == true)
             {
+                //OrderByDescending metodu ile isimleri alfabetik sıranın tersine göre yazdırdım
                 dataGridView1.DataSource = db.TBL_OGR.OrderByDescending(p => p.AD).ToList();
+                //4. ve 5. kolonları kullanıcıya görünmez hale getirdim
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
             }
-            //İlk 5 kaydı listele
+
             if (radioButton3.Checked == true)
             {
+                //liste3 e Take metoduyla sıralamak istediğim öğrenci sayısını girdim
                 List<TBL_OGR> liste3 = db.TBL_OGR.OrderBy(p => p.AD).Take(5).ToList();
                 dataGridView1.DataSource = liste3;
             }
-            //Toplam öğrenci sayısını yazdır
+
             if (radioButton4.Checked == true)
             {
+                //Count metoduyla OGR tablosundaki kişi sayısını saydırttım ve bu değeri toplam_ogrsayısı adlı değişkene atadım
                 int toplam_ogrsayısı = db.TBL_OGR.Count();
+                //MessageBox ile kullanıcıya mesaj olarak Toplam Öğrenci Sayısını gösterdim
                 MessageBox.Show(toplam_ogrsayısı.ToString(), "Toplam Öğrenci Sayısı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            //Adı E harfi ile başlayanları yazdır
+
             if (radioButton5.Checked == true)
             {
+                //Where ile şart koydum,şartın içine StartsWith metoduyla istediğim harfle başlayan verileri yazdırdım
                 List<TBL_OGR> liste4 = db.TBL_OGR.Where(p => p.AD.StartsWith("E")).ToList();
                 dataGridView1.DataSource = liste4;
             }
-            //Soyadı K harfi ile bitenleri yazdır
+
             if (radioButton6.Checked == true)
             {
+                //Where ile şart koydum,şartın içine EndsWith metoduyla soyadları istediğim harf ile biten verileri yazdırdım
                 List<TBL_OGR> liste5 = db.TBL_OGR.Where(p => p.SOYAD.EndsWith("K")).ToList();
                 dataGridView1.DataSource = liste5;
             }
-            //En yüksek 2.Sınav notunu listele
+
             if (radioButton7.Checked == true)
             {
+                //Max metoduyla 2.sınavları büyükten küçüğe sıraladım
                 var enyuksek = db.TBL_NOTLAR.Max(p => p.SINAV2);
                 MessageBox.Show("2.sınavın en yüksek notu: " + enyuksek.ToString());
             }
-            /*
-            if (radioButton8.Checked == true)
-            {
-                List<TBL_NOTLAR> liste6 = db.TBL_NOTLAR.ToList();
-                dataGridView1.DataSource = liste6;
-            }
-            */
+
             if (radioButton9.Checked == true)
             {
                 //dataGridView1.DataSource = db.TBL_NOTLAR.OrderByDescending(p => p.SINAV1).ToList();
+                //Notları listeledim
                 dataGridView1.DataSource = db.TBL_NOTLAR.ToList();
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
@@ -131,6 +135,7 @@ namespace proje2
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView1.Columns[6].Visible = false;
                 dataGridView1.Columns[7].Visible = false;
+                //Join ile Öğrenci Adını, Soyadını ve 1.sınavları birleştirip kullanıcıya gösterdim
                 var sorgu = from d1 in db.TBL_NOTLAR
                             join d2 in db.TBL_OGR
                             on d1.OGR equals d2.ID 
@@ -142,9 +147,11 @@ namespace proje2
                             };
                 dataGridView1.DataSource = sorgu.ToList();
             }
+
             if (radioButton10.Checked == true)
             {
                 //dataGridView1.DataSource = db.TBL_NOTLAR.OrderBy(p => p.SINAV2).ToList();
+                //Notlar tablosunu listeledim
                 dataGridView1.DataSource = db.TBL_NOTLAR.ToList();
                 dataGridView1.Columns[0].Visible = false;
                 dataGridView1.Columns[1].Visible = false;
@@ -153,6 +160,8 @@ namespace proje2
                 dataGridView1.Columns[5].Visible = false;
                 dataGridView1.Columns[6].Visible = false;
                 dataGridView1.Columns[7].Visible = false;
+                //Join ile Öğrenci Adını, Soyadını ve 2.sınavları birleştirip kullanıcıya gösterdim
+                //OrderBy ile 2.sınavları sıraladım
                 var sorgu = from d1 in db.TBL_NOTLAR
                             join d2 in db.TBL_OGR
                             on d1.OGR equals d2.ID orderby d1.SINAV2
@@ -172,32 +181,6 @@ namespace proje2
 
         }
 
-        private void radioButton8_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton10_CheckedChanged(object sender, EventArgs e)
-        {
-           
-
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_derslistele_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = db.TBL_DERS.ToList();
@@ -205,6 +188,7 @@ namespace proje2
 
         private void btn_dersekle_Click(object sender, EventArgs e)
         {
+            //Ders ekleme işlemi yaptım
             TBL_DERS t = new TBL_DERS();
             t.DERS_AD = Convert.ToString(txt_dersAD.Text);
             db.TBL_DERS.Add(t);
@@ -214,11 +198,39 @@ namespace proje2
 
         private void btn_derssil_Click(object sender, EventArgs e)
         {
+            //Ders silme işlemi yaptım
             int id = Convert.ToInt32(txt_dersID.Text);
             var x = db.TBL_DERS.Find(id);
             db.TBL_DERS .Remove(x);
             db.SaveChanges();
             MessageBox.Show("Ders başarıyla silinişmtir");
+        }
+
+        //Bu kısımları yanlışlıkla çift tıklayıp açtım
+        private void radioButton8_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton10_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

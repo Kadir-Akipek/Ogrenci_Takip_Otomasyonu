@@ -16,9 +16,11 @@ namespace proje2
         {
             InitializeComponent();
         }
-  
+
+        //Giriş panelinin kodlarını girdim
         private void btn_giris_Click_1(object sender, EventArgs e)
         {
+            //Eğer kullaıncı adı ve şifre doğru ise giriş yapılsın
             if (txt_kullaniciadi.Text == "administrator" && txt_sifre.Text == "1234")
             {
                 MessageBox.Show("Hoş Geldiniz");
@@ -26,10 +28,12 @@ namespace proje2
                 yeni1.Show();
                 this.Hide();
             }
+            //Eğer kullanıcı adı veya şifre kısmı boş bırakılırsa giriş başarısız olsun ve kullanıcıya hata mesajı göndersin
             if (txt_kullaniciadi.Text == "" || txt_sifre.Text == "")
             {
                 MessageBox.Show("Lütfen Kullanıcı Adı ve Şifre alanlarını boş bırakmayınız");
             }
+            //Eğer kullanıcı adı veya şifre hatalı girilirse giriş işlemi başarısız olsun ve kullanıcıya hata mesajı göndersin
             else if (txt_kullaniciadi.Text != "administrator" || txt_sifre.Text != "1234")
             {
                 MessageBox.Show("Kullanıcı Adı veya Şifre hatalı lütfen tekrar deneyin");

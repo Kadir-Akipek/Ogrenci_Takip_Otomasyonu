@@ -175,12 +175,6 @@ namespace proje2
             }
         }
 
-        private void btn_devamsizlik_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = db.TBL_DEVAMSİZLİK.ToList();
-
-        }
-
         private void btn_derslistele_Click(object sender, EventArgs e)
         {
             dataGridView1.DataSource = db.TBL_DERS.ToList();
@@ -231,6 +225,13 @@ namespace proje2
         private void Form2_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_kullanimkilavuzu_Click(object sender, EventArgs e)
+        {
+            Form3 yeni2 = new Form3();
+            yeni2.Show();
+            this.Hide();
         }
     }
 }

@@ -60,9 +60,14 @@
             this.btn_derslistele = new System.Windows.Forms.Button();
             this.btn_dersekle = new System.Windows.Forms.Button();
             this.btn_derssil = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txt_devamsizlik = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_kullanimkilavuzu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -243,7 +248,7 @@
             // 
             // btn_cıkıs
             // 
-            this.btn_cıkıs.Location = new System.Drawing.Point(1114, 694);
+            this.btn_cıkıs.Location = new System.Drawing.Point(1094, 694);
             this.btn_cıkıs.Name = "btn_cıkıs";
             this.btn_cıkıs.Size = new System.Drawing.Size(134, 62);
             this.btn_cıkıs.TabIndex = 6;
@@ -392,12 +397,52 @@
             this.btn_derssil.UseVisualStyleBackColor = true;
             this.btn_derssil.Click += new System.EventHandler(this.btn_derssil_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txt_devamsizlik);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Location = new System.Drawing.Point(444, 407);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 162);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Devamsızlık";
+            // 
+            // txt_devamsizlik
+            // 
+            this.txt_devamsizlik.Location = new System.Drawing.Point(60, 31);
+            this.txt_devamsizlik.Name = "txt_devamsizlik";
+            this.txt_devamsizlik.Size = new System.Drawing.Size(100, 22);
+            this.txt_devamsizlik.TabIndex = 10;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.label7.Location = new System.Drawing.Point(6, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 16);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "ID:";
+            // 
+            // btn_kullanimkilavuzu
+            // 
+            this.btn_kullanimkilavuzu.Location = new System.Drawing.Point(1094, 621);
+            this.btn_kullanimkilavuzu.Name = "btn_kullanimkilavuzu";
+            this.btn_kullanimkilavuzu.Size = new System.Drawing.Size(134, 62);
+            this.btn_kullanimkilavuzu.TabIndex = 22;
+            this.btn_kullanimkilavuzu.Text = "Kullanım Kılavuzu";
+            this.btn_kullanimkilavuzu.UseVisualStyleBackColor = true;
+            this.btn_kullanimkilavuzu.Click += new System.EventHandler(this.btn_kullanimkilavuzu_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1246, 768);
+            this.Controls.Add(this.btn_kullanimkilavuzu);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btn_derssil);
             this.Controls.Add(this.btn_dersekle);
             this.Controls.Add(this.btn_derslistele);
@@ -426,6 +471,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,5 +512,9 @@
         private System.Windows.Forms.Button btn_derslistele;
         private System.Windows.Forms.Button btn_dersekle;
         private System.Windows.Forms.Button btn_derssil;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txt_devamsizlik;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btn_kullanimkilavuzu;
     }
 }

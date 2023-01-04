@@ -19,26 +19,26 @@ namespace proje2
 
         private void btn_klvz1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Öğrenci ekleme işlemi için Öğrenci groupBox'ında bulunan AD, SOYAD ve YAŞ kısımlarını doldurunuz ve Öğrenci Ekle butonuna tıklayınız " +
-                "ID otomatik artan olduğundan ID kısmı boş bırakılacaktır" );
+            DialogResult dialogResult = MessageBox.Show("Öğrenci ekleme işlemi için Öğrenci groupBox'ında bulunan AD, SOYAD ve YAŞ kısımlarını doldurunuz ve Öğrenci Ekle butonuna tıklayınız " +
+                "ID otomatik artan olduğundan ID kısmı boş bırakılacaktır","Question", MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void btn_klvz3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Öğrenci silme işlemi önce Öğrencileri Listele butonuna basarak silmek istediğiniz öğrencinin ID sini öğreniniz " +
-                "Öğrendikten sonra Öğrenci groupBox'ında ID kısmına seçtiğiniz ID yı yazınız ve Öğrenci Sil butonuna tıklayınız");
+            DialogResult dialogResult = MessageBox.Show("Öğrenci silme işlemi önce Öğrencileri Listele butonuna basarak silmek istediğiniz öğrencinin ID sini öğreniniz " +
+                "Öğrendikten sonra Öğrenci groupBox'ında ID kısmına seçtiğiniz ID yı yazınız ve Öğrenci Sil butonuna tıklayınız", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_klvz2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ders ekleme işlemi için Ders groupBox'ında bulunan AD kısmını doldurunuz ve Ders Ekle butonuna basınız " +
-                "ID otomatik artan olduğundan ID kısmı boş bırakılacaktır");
+            DialogResult dialogResult = MessageBox.Show("Ders ekleme işlemi için Ders groupBox'ında bulunan AD kısmını doldurunuz ve Ders Ekle butonuna basınız " +
+                "ID otomatik artan olduğundan ID kısmı boş bırakılacaktır", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_klvz4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ders silme işlemi önce Dersleri Listele butonuna basarak silmek istediğiniz dersin ID sini öğreniniz " +
-                "Öğrendikten sonra Ders groupBox'ında ID kısmına seçtiğiniz ID yı yazınız ve Dersi Sil butonuna tıklayınız");
+            DialogResult dialogResult = MessageBox.Show("Ders silme işlemi önce Dersleri Listele butonuna basarak silmek istediğiniz dersin ID sini öğreniniz " +
+                "Öğrendikten sonra Ders groupBox'ında ID kısmına seçtiğiniz ID yı yazınız ve Dersi Sil butonuna tıklayınız", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

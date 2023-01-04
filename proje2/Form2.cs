@@ -231,7 +231,6 @@ namespace proje2
         {
             Form3 yeni2 = new Form3();
             yeni2.Show();
-            this.Hide();
         }
     }
 }

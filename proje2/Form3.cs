@@ -40,5 +40,11 @@ namespace proje2
             DialogResult dialogResult = MessageBox.Show("Ders silme işlemi önce Dersleri Listele butonuna basarak silmek istediğiniz dersin ID sini öğreniniz " +
                 "Öğrendikten sonra Ders groupBox'ında ID kısmına seçtiğiniz ID yı yazınız ve Dersi Sil butonuna tıklayınız", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void btn_klvz5_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Ders silme işlemi önce Dersleri Listele butonuna basarak devamsızlığını görmek istediğiniz öğrencinin ID sini öğreniniz " +
+               "Öğrendikten sonra Devamsızlık groupBox'ında ID kısmına seçtiğiniz ID yı yazınız otomatik olarak öğrenci karşınızda listelenecektir", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

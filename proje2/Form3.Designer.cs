@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_klvz5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,7 +69,7 @@
             // 
             this.btn_klvz1.Location = new System.Drawing.Point(375, 113);
             this.btn_klvz1.Name = "btn_klvz1";
-            this.btn_klvz1.Size = new System.Drawing.Size(200, 121);
+            this.btn_klvz1.Size = new System.Drawing.Size(200, 72);
             this.btn_klvz1.TabIndex = 3;
             this.btn_klvz1.Text = "Öğrenci Ekleme İşlemi Nasıl Yapılır ";
             this.btn_klvz1.UseVisualStyleBackColor = true;
@@ -77,7 +78,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::proje2.Properties.Resources._5663188;
-            this.pictureBox2.Location = new System.Drawing.Point(853, 103);
+            this.pictureBox2.Location = new System.Drawing.Point(848, 113);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(277, 257);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,9 +107,9 @@
             // 
             // btn_klvz3
             // 
-            this.btn_klvz3.Location = new System.Drawing.Point(375, 254);
+            this.btn_klvz3.Location = new System.Drawing.Point(375, 205);
             this.btn_klvz3.Name = "btn_klvz3";
-            this.btn_klvz3.Size = new System.Drawing.Size(200, 116);
+            this.btn_klvz3.Size = new System.Drawing.Size(200, 72);
             this.btn_klvz3.TabIndex = 6;
             this.btn_klvz3.Text = "Öğrenci Silme İşlemi Nasıl Yapılır ";
             this.btn_klvz3.UseVisualStyleBackColor = true;
@@ -167,12 +168,23 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "TESLİM TARİHİ - 19.01.2023";
             // 
+            // btn_klvz5
+            // 
+            this.btn_klvz5.Location = new System.Drawing.Point(375, 298);
+            this.btn_klvz5.Name = "btn_klvz5";
+            this.btn_klvz5.Size = new System.Drawing.Size(200, 72);
+            this.btn_klvz5.TabIndex = 12;
+            this.btn_klvz5.Text = "Öğrencinin yapmış olduğu devamsızlığı nasıl öğrenebilirim";
+            this.btn_klvz5.UseVisualStyleBackColor = true;
+            this.btn_klvz5.Click += new System.EventHandler(this.btn_klvz5_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(1455, 772);
+            this.Controls.Add(this.btn_klvz5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -208,5 +220,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_klvz5;
     }
 }

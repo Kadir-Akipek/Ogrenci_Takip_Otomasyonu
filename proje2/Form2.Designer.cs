@@ -414,6 +414,7 @@
             this.txt_devamsizlik.Name = "txt_devamsizlik";
             this.txt_devamsizlik.Size = new System.Drawing.Size(100, 22);
             this.txt_devamsizlik.TabIndex = 10;
+            this.txt_devamsizlik.TextChanged += new System.EventHandler(this.txt_devamsizlik_TextChanged);
             // 
             // label7
             // 

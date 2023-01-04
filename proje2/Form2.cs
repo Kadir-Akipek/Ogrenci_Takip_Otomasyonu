@@ -199,6 +199,23 @@ namespace proje2
             db.SaveChanges();
             MessageBox.Show("Ders başarıyla silinişmtir");
         }
+        private void btn_kullanimkilavuzu_Click(object sender, EventArgs e)
+        {
+            Form3 yeni2 = new Form3();
+            yeni2.Show();
+        }
+
+        private void txt_devamsizlik_TextChanged(object sender, EventArgs e)
+        {
+            devamsizlik(Convert.ToString(txt_devamsizlik.Text));
+        }
+        private void devamsizlik(string id)
+        {
+            var result = db.TBL_DEVAMSİZLİK.Where(x => x.OgrID.ToString().Equals(id)).ToList();
+            dataGridView1.DataSource = result;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[3].Visible = false;
+        }
 
         //Bu kısımları yanlışlıkla çift tıklayıp açtım
         private void radioButton8_CheckedChanged(object sender, EventArgs e)
@@ -225,12 +242,6 @@ namespace proje2
         private void Form2_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void btn_kullanimkilavuzu_Click(object sender, EventArgs e)
-        {
-            Form3 yeni2 = new Form3();
-            yeni2.Show();
         }
     }
 }

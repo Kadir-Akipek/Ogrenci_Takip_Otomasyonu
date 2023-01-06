@@ -43,7 +43,7 @@ namespace proje2
 
         private void btn_klvz5_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Ders silme işlemi önce Dersleri Listele butonuna basarak devamsızlığını görmek istediğiniz öğrencinin ID sini öğreniniz " +
+            DialogResult dialogResult = MessageBox.Show("Öğrencileri listele butonuna basarak devamsızlığını görmek istediğiniz öğrencinin ID sini öğreniniz " +
                "Öğrendikten sonra Devamsızlık groupBox'ında ID kısmına seçtiğiniz ID yı yazınız otomatik olarak öğrenci karşınızda listelenecektir", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }

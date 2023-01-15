@@ -35,9 +35,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="AD" Type="varchar" MaxLength="20" />
-          <Property Name="SOYAD" Type="varchar" MaxLength="20" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SOYAD" Type="nvarchar" MaxLength="50" />
           <Property Name="YAŞ" Type="int" />
         </EntityType>
         <Association Name="FK_TBL_DEVAMSİZLİK_TBL_OGR">
@@ -124,8 +124,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="SOYAD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="YAŞ" Type="Int32" />
           <NavigationProperty Name="TBL_NOTLAR" Relationship="Self.FK_TBL_NOTLAR_TBL_OGR" FromRole="TBL_OGR" ToRole="TBL_NOTLAR" />
           <NavigationProperty Name="TBL_DEVAMSİZLİK" Relationship="finalModel.FK_TBL_DEVAMSİZLİK_TBL_OGR" FromRole="TBL_OGR" ToRole="TBL_DEVAMSİZLİK" />

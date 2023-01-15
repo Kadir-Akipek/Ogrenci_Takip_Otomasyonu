@@ -23,7 +23,7 @@ namespace proje2
             //Eğer kullaıncı adı ve şifre doğru ise giriş yapılsın
             if (txt_kullaniciadi.Text == "administrator" && txt_sifre.Text == "1234")
             {
-                DialogResult dialogResult = MessageBox.Show("Hoş Geldiniz", "Question", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult dialogResult = MessageBox.Show("Hoş Geldiniz", "BİLGİ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form2 yeni1 = new Form2();
                 yeni1.Show();
                 this.Hide();
@@ -31,12 +31,12 @@ namespace proje2
             //Eğer kullanıcı adı veya şifre kısmı boş bırakılırsa giriş başarısız olsun ve kullanıcıya hata mesajı göndersin
             if (txt_kullaniciadi.Text == "" || txt_sifre.Text == "")
             {
-                DialogResult dialogResult = MessageBox.Show("Lütfen Kullanıcı Adı ve Şifre alanlarını boş bırakmayınız", "Question", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("Lütfen Kullanıcı Adı ve Şifre alanlarını boş bırakmayınız", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             //Eğer kullanıcı adı veya şifre hatalı girilirse giriş işlemi başarısız olsun ve kullanıcıya hata mesajı göndersin
             else if (txt_kullaniciadi.Text != "administrator" || txt_sifre.Text != "1234")
             {
-                DialogResult dialogResult = MessageBox.Show("Kullanıcı Adı veya Şifre hatalı lütfen tekrar deneyin", "Question", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("Kullanıcı Adı veya Şifre hatalı lütfen tekrar deneyin", "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
